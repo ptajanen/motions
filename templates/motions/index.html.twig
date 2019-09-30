@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %} {% block title %}Motions{% endblock %} {% block body %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+
+
+    <h1>Motions by Personnel</h1>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Creation Date</th>
+                <th>Author</th>
+                <th>Contact</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for motions in motionss %}
+            <tr>
+                <th>{{ motions.id }}</th>
+                <td>{{ motions.title }}</td>
+                <td>{{ motions.descrpt }}</td>
+                <td>{{ motions.cr_date|date('Y-m-d') }}</td>
+                <td>{{ motions.full_name }}</td>
+                <td>{{ motions.email }}</td>
+                <td>
+                    <a href="#" class="btn btn-dark">Show</a>
+                    <a href="#" class="btn btn-success">Modify</a>
+                    <button class="btn btn-danger">Delete</button>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+
+</html>
+{% endblock %}

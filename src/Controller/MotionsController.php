@@ -1,22 +1,27 @@
 <?php
 namespace App\Controller;
 
+use App\Entity\Motions;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-class MotionsController
+class MotionsController extends AbstractController
 {
 /**
- * @Route("/motions/number")
+ * @Route("/motions/index")
  */
-    public function number()
-    {
-        $number = random_int(0, 100);
+public function index(){
+    // Hakee kaikki aloitteet tietokannasta
+    $motionss = $this->getDoctrine()->getRepository(Motions::class)->findAll();
 
-        return new Response(
-            '<html><body>Lucky number: '.$number.'</body></html>'
-        );
-    }
+
+    // Pyydetään näkymää näyttämään kaikki aloitteet
+    return $this->render('motions/index.html.twig',[
+        'motionss'    => $motionss,
+    ]);
+}
 }
 
 ?>
