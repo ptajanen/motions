@@ -29,18 +29,19 @@ class Motions
     /**
      * @ORM\Column(type="date")
      */
-    private $cr_date;
+    private $date;
 
     /**
      * @ORM\Column(type="string", length=60)
      */
-    private $full_name;
+    private $name;
 
     /**
      * @ORM\Column(type="string", length=60)
      */
     private $email;
 
+  
     public function getId(): ?int
     {
         return $this->id;
@@ -69,27 +70,26 @@ class Motions
 
         return $this;
     }
-    public function getcr_date(): ?\DateTimeInterface
+    public function getDate(): ?\DateTimeInterface
     {
-        return $this->cr_date;
+        return $this->date;
     }
 
-    public function setcr_date(\DateTimeInterface $cr_date): self
-
+    public function setDate(\DateTimeInterface $date): self
     {
-        $this->cr_date = $cr_date;
+        $this->date = $date;
 
         return $this;
     }
 
-    public function getfull_name(): ?string
+    public function getName(): ?string
     {
-        return $this->full_name;
+        return $this->name;
     }
 
-    public function setfull_name(string $full_name): self
+    public function setName(string $name): self
     {
-        $this->full_name = $full_name;
+        $this->name = $name;
 
         return $this;
     }
@@ -106,3 +106,6 @@ class Motions
         return $this;
     }
 }
+
+
+    

@@ -31,7 +31,7 @@ final class Version20190930103836 extends AbstractMigration
         // this down() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('CREATE TABLE motionsDetails (id INT NOT NULL, title VARCHAR(40) NOT NULL COLLATE latin1_swedish_ci, descrpt TEXT DEFAULT NULL COLLATE latin1_swedish_ci, crDate DATE DEFAULT \'NULL\', fullName VARCHAR(60) NOT NULL COLLATE latin1_swedish_ci, email VARCHAR(60) NOT NULL COLLATE latin1_swedish_ci, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB COMMENT = \'\' ');
+        $this->addSql('CREATE TABLE motionsDetails (id INT NOT NULL, title VARCHAR(40) NOT NULL COLLATE latin1_swedish_ci, descrpt TEXT DEFAULT NULL COLLATE latin1_swedish_ci, cr_date DATE DEFAULT \'NULL\', full_name VARCHAR(60) NOT NULL COLLATE latin1_swedish_ci, email VARCHAR(60) NOT NULL COLLATE latin1_swedish_ci, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB COMMENT = \'\' ');
         $this->addSql('DROP TABLE motions');
     }
 }

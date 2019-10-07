@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %} {% block title %}List of introduced motions{% endblock %} {% block body %}
+
+<h1> Print out the motion</h1>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Create Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{ motions.title }}</td>
+            <td>{{ motions.descrpt }}</td>
+            <td>{{ motions.date|date('Y-m-d') }}</td>
+            <td>
+                <a href="#" class="btn btn-outline-success btn-sm">Print</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+{% endblock %} {% block javascripts %} {{ parent() }}
+<script src="js/main.js"></script>
+{% endblock %}

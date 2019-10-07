@@ -28,13 +28,14 @@
                 <th>{{ motions.id }}</th>
                 <td>{{ motions.title }}</td>
                 <td>{{ motions.descrpt }}</td>
-                <td>{{ motions.cr_date|date('Y-m-d') }}</td>
-                <td>{{ motions.full_name }}</td>
+                <td>{{ motions.date|date('Y-m-d') }}</td>
+                <td>{{ motions.name }}</td>
                 <td>{{ motions.email }}</td>
                 <td>
-                    <a href="#" class="btn btn-dark">Show</a>
-                    <a href="#" class="btn btn-success">Modify</a>
-                    <button class="btn btn-danger">Delete</button>
+                    <a href="{{ path( "motions_show", {id:motions.id} ) }}" class="btn btn-outline-primary btn-sm">Show</a>
+                    <a href="#" class="btn btn-outline-warning btn-sm">Modify</a>
+                    <a href="{{ path( "motions_print", {id:motions.id} ) }}" class="btn btn-outline-success btn-sm">Print</a>
+                    <button class="btn btn-danger btn-sm">Delete</button>
                 </td>
             </tr>
             {% endfor %}
@@ -43,4 +44,8 @@
 </body>
 
 </html>
+
+{% block javascripts %} {{ parent() }}
+<script src="../../js/main.js"></script>
+{% endblock %}
 {% endblock %}
