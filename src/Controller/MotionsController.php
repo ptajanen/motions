@@ -69,13 +69,13 @@ public function index(){
           ]);
       }
     /**
- * @Route("/motions/modify/{id}", name="motions_modify" )
+ * @Route("/motions/edit/{id}", name="motions_edit" )
  */
-public function modify(Request $request, $id){
+public function edit(Request $request, $id){
     // creating the motions-object and returning it with filled-in values
     $motions = $this->getDoctrine()->getRepository(Motions::class)->find($id);
 
-    // Form creation
+     // Form creation
     $form = $this->createForm(
         MotionsFormType::class,
         $motions, [
@@ -85,7 +85,7 @@ public function modify(Request $request, $id){
 //treating the data from the form
 $form->handleRequest($request);
 if($form->isSubmitted()){
-  // save formdata to a parameter
+  // save formdata to a muuttuja
   $motions = $form->getData();
 
   // save to db
@@ -96,7 +96,7 @@ if($form->isSubmitted()){
   return $this->redirectToRoute('motions_list');
 }      
 
- return $this->render('motions/modify.html.twig', [
+ return $this->render('motions/edit.html.twig', [
    'form1'  => $form->createView()
  ]);
 }
@@ -120,13 +120,26 @@ if($form->isSubmitted()){
         
           // Delet the motion from the db
           $entityManager = $this->getDoctrine()->getManager();
-          $entityManager->remove($lmotions);
+          $entityManager->remove($motions);
           $entityManager->flush();
   
           return $this->redirectToRoute('motions_list');
-  
-         //return $this->render('motions/delete.html.twig');
       }
+      
+
+/**
+ * @Route("/motions/printAll", name="motions_printAll")
+ */
+public function printAll(){
+    // Hakee kaikki aloitteet tietokannasta
+    $motionss = $this->getDoctrine()->getRepository(Motions::class)->findAll();
+
+
+    // Pyydetään näkymää näyttämään kaikki aloitteet
+    return $this->render('motions/printAll.html.twig',[
+        'motionss'    => $motionss,
+    ]);
+}
 }
 
 ?>

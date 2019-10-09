@@ -21,8 +21,8 @@
             <td>{{ motions.email }}</td>
 
             <td>
-                <a href="#" class="btn btn-success">Modify</a>
-                <button delete-link = "{{motions.id }} class="btn btn-danger">Delete</button>
+                <a href="{{ path( "motions_edit", {id:motions.id} ) }}" class="btn btn-warning ">Edit</a>
+                <button delete-link = "{{motions.id }}" class="btn btn-danger">Delete</button>
             </td>
         </tr>
     </tbody>

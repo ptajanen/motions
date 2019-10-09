@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+{% block title %}Motions{% endblock %}
+  {% block body %}
+  
+    <h1>Details of all the Motions</h1>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Creation Date</th>
+                <th>Author</th>
+                <th>Contact</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for motions in motionss %}
+            <tr>
+                <th>{{ motions.id }}</th>
+                <td>{{ motions.title }}</td>
+                <td>{{ motions.descrpt }}</td>
+                <td>{{ motions.date|date('Y-m-d') }}</td>
+                <td>{{ motions.name }}</td>
+                <td>{{ motions.email }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class = buttons>
+                    <a href="#"  class ="btn btn-success" style="margin:4px;">PRINT</a>
+                    </div>    
+    
+    {% endblock %}
+
+

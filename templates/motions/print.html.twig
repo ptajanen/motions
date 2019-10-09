@@ -1,4 +1,6 @@
-{% extends 'base.html.twig' %} {% block title %}List of introduced motions{% endblock %} {% block body %}
+{% extends 'base.html.twig' %}
+ {% block title %}List of introduced motions{% endblock %}
+  {% block body %}
 
 <h1> Print out the motion</h1>
 <table class="table table-hover">
@@ -15,12 +17,10 @@
             <td>{{ motions.descrpt }}</td>
             <td>{{ motions.date|date('Y-m-d') }}</td>
             <td>
-                <a href="#" class="btn btn-outline-success btn-sm">Print</a>
+                <a href="#" class="btn btn-success">Print</a>
             </td>
         </tr>
     </tbody>
 </table>
 
-{% endblock %} {% block javascripts %} {{ parent() }}
-<script src="js/main.js"></script>
-{% endblock %}
+{% endblock %} 

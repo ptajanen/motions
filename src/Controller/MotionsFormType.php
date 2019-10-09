@@ -22,7 +22,7 @@
                 ->add('email', TextType::class, ['label' => 'Email'])
                 ->add('save', SubmitType::class, [
                     'label' => 'Save',
-                    'attr' => ['class' => 'btn btn-info']
+                    'attr' => ['class' => "btn btn-success"]
                 ]);
         }
 
